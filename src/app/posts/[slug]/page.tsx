@@ -11,26 +11,26 @@ import Header from "@/app/_components/header";
 export const runtime = 'edge';
 
 export default async function Post({ params }: Params) {
-  const post = await getPostBySlug(params.slug);
+  // const post = await getPostBySlug(params.slug);
 
-  if (!post) {
-    return notFound();
-  }
+  // if (!post) {
+  //   return notFound();
+  // }
 
-  const content = await markdownToHtml(post.content || "");
+  // const content = await markdownToHtml(post.content || "");
 
   return (
     <main>
-      <Alert preview={post.preview} />
+      {/* <Alert preview={post.preview} /> */}
       <Container>
         <Header />
         <article className="mb-32">
-          <PostHeader
+          {/* <PostHeader
             title={post.title}
             coverImage={post.coverImage}
             date={post.date}
           />
-          <PostBody content={content} />
+          <PostBody content={content} /> */}
         </article>
       </Container>
     </main>
