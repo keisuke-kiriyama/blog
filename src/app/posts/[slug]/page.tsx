@@ -43,28 +43,28 @@ type Params = {
   };
 };
 
-export function generateMetadata({ params }: Params): Metadata {
-  const post = getPostBySlug(params.slug);
+// export function generateMetadata({ params }: Params): Metadata {
+//   const post = getPostBySlug(params.slug);
 
-  if (!post) {
-    return notFound();
-  }
+//   if (!post) {
+//     return notFound();
+//   }
 
-  const title = `${post.title}`;
+//   const title = `${post.title}`;
 
-  return {
-    title,
-    openGraph: {
-      title,
-      images: [post.ogImage.url],
-    },
-  };
-}
+//   return {
+//     title,
+//     openGraph: {
+//       title,
+//       images: [post.ogImage.url],
+//     },
+//   };
+// }
 
-export async function generateStaticParams() {
-  const posts = getAllPosts();
+// export async function generateStaticParams() {
+//   const posts = getAllPosts();
 
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+//   return posts.map((post) => ({
+//     slug: post.slug,
+//   }));
+// }
