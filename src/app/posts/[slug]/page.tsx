@@ -11,7 +11,7 @@ import Header from "@/app/_components/header";
 export const runtime = 'edge';
 
 export default async function Post({ params }: Params) {
-  const post = getPostBySlug(params.slug);
+  const post = await getPostBySlug(params.slug);
 
   if (!post) {
     return notFound();
