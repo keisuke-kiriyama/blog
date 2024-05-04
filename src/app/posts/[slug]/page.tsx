@@ -11,7 +11,7 @@ import Header from "@/app/_components/header";
 export const runtime = 'edge';
 
 export default async function Post({ params }: Params) {
-  const post = await getPostBySlug(params.slug);
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     return notFound();
@@ -43,8 +43,8 @@ type Params = {
   };
 };
 
-export async function generateMetadata({ params }: Params): Metadata {
-  const post = await getPostBySlug(params.slug);
+export function generateMetadata({ params }: Params): Metadata {
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     return notFound();
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: Params): Metadata {
 }
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
+  const posts = getAllPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
